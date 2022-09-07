@@ -118,12 +118,35 @@ namespace methodFunction
         }
 
         static void Main(string[] args){
+            // user input
+            Console.WriteLine("Enter first number");
+            int a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter second number");
+            int b = int.Parse(Console.ReadLine());
             Program.Add(4,5);
             Console.ReadLine();
         }
     }
 }
 
+
+
+using System;
+namespace methodFunction
+{
+    class Program{
+        public static void Add(string name){
+            
+            Console.WriteLine("Your name is: " +name);
+        }
+
+        static void Main(string[] args){
+            // user input
+            Program.Add("Musraful");
+            Console.ReadLine();
+        }
+    }
+}
 
 
 
