@@ -3,7 +3,7 @@
 - A program is difficult to comprehend when there are too many if statement representing multiple selection constructs.
 - To avoid using multiple if statements, in certain cases, the switch case approach can be used as an alternative.
 - The switch case statement is used when a variable needs to be compared against different values.
-
+```
 using System;
 namespace selection_statement 
 {
@@ -43,7 +43,7 @@ namespace selection_statement
     }
 }
 
-
+```
 
 ###
 '''
@@ -59,7 +59,7 @@ Console.ReadLine();
 - It is used to perform specific task.
 - Method are reusable.
 - Every C# program has at least one class with a method named Main.
-
+```
 using System;
 namespace methodFunction
 {
@@ -82,8 +82,9 @@ namespace methodFunction
         }
     }
 }
-
+```
 ## Static method:-
+```
 using System;
 namespace methodFunction
 {
@@ -107,7 +108,8 @@ namespace methodFunction
         }
     }
 }
-
+```
+```
 using System;
 namespace methodFunction
 {
@@ -128,9 +130,9 @@ namespace methodFunction
         }
     }
 }
+```
 
-
-
+```
 using System;
 namespace methodFunction
 {
@@ -147,6 +149,6 @@ namespace methodFunction
         }
     }
 }
-
+```
 
 
