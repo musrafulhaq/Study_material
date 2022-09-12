@@ -1074,3 +1074,318 @@ class Program
 
 
 
+```
+using System;
+namespace varAndDynamic
+{
+    class Program{
+        static void Main(string[] args){
+            var a = 20;
+            var b = true; 
+            var c = "Musraful";
+            Console.WriteLine(c.Length);
+        }
+    }
+}
+```
+
+## Dynamic keyword:-
+- Dynamic was introduced in C# 4.0
+- Dynamic keyword is also used to store any type of data in its variable.
+- Value of Dynamic variable is decided at run time.
+- Initialization is not mandatory when we declare a variable with dynamic keyword.
+- If we want to check the type of value which is stored in dynamic variable then we can GetType() method with the dynamic variable.
+- Dynamic variable can be used to create properties and return values from a function.
+- We can use dynamic variable in function parameter.
+- Dynamic keyword is a reference type.
+
+```
+using System;
+namespace varAndDynamic
+{
+    class Program{
+        static void Main(string[] args){
+            dynamic a;
+            // a = 30;
+            a = "Musraful";
+            Console.WriteLine(c);
+        }
+    }
+}
+```
+
+
+
+#### CLASSES AND OBJECTS IN C#:-
+- C# program are composed of classes that represent the entities of the program which also include code to instantiate the classes as objects.
+- When the program runs, objects are created for the classes and they interact with each other to provide the functionalities of the program.
+- An object is a tangible entity such as a car, a table, or a briefcase. Every object has some characteristics and is capable of performing certain actions.
+- The concept of objects in the real world can also be extended to the programming world. An object in a programming language has a unique identity, state, and behavior.
+- The concept of objects in the real world can also be extended to the programming world. An object in a programming language has a unique identity, and behavior.
+- The state of the object refers to its characteristics or attributes whereas the behavior of the object comprises its actions.
+
+```
+using System;
+namespace Classes_and_Object
+{
+    class Student
+    
+    {
+        int rollno;
+        string name;
+        int age;
+        int standard;
+        public void setRollNo(int rollno)
+        {
+            this.rollno = rollno;
+        }
+        
+        public int getRollNo()
+        {
+           return this.rollNo;
+        }
+        
+        static void Main(string[] args)
+        {
+            Student ali = new Student();
+            ali.setRollNo(22);
+            Console.WriteLine(ali.getRollNo);
+        }
+    }
+}
+```
+
+```
+
+using System;
+namespace Classes_and_Object
+{
+    class Student
+    
+    {
+        int rollno;
+        string name;
+        int age;
+        int standard;
+        public void setStudent(int rollno, string name, int age, int statndard)
+        {
+            this.rollno = rollno;
+            this.name = name;
+            this.age = age;
+            this.standard = standard;
+        }
+        
+        public void getStudent()
+        {
+            Console.WriteLine("Your roll no is: {0}",this.rollNo);
+            Console.WriteLine("Your name is: {0}",this.name);
+            Console.WriteLine("Your age is: {0}",this.age);
+            Console.WriteLine("Your class is {0}",this.standard);
+        }
+        
+        static void Main(string[] args)
+        {
+            Student ali = new Student();
+            ali.setStudent(22, "Musraful", 22, 11);
+            ali.getStudent();
+        }
+    }
+}
+```
+
+### Constructors in C#:-
+- A class constructor is a special member function of a class that is executed whenever  we create new objects of that class.
+- A constructor has exactly the same name as that of class and it does not have any return type.
+* Two types of constructor:-
+## Default Constructor:-
+A constructor which has not defined any parameter or we can say without any parameters is called default constructor. It initializes the same value of every instance of class.
+
+## Parameterized Constructor:-
+A constructor which has at least one parameter is called parameterized constructor. Using this type of constructor we can initialize each
+
+```
+using System;
+namespace ConstructorName
+{
+    class Program
+    {
+        public Program()
+        {
+            Console.WriteLine("Constructor invokes !!");
+        }
+
+        static void Main(string [] args)
+        {
+            Program P = new Program();
+            Console.ReadLine();
+        }
+    }
+}
+```
+
+```
+using System;
+namespace ConstructorName
+{
+    class Employees
+    {
+        int EmpId;
+        string Ename;
+        int Eage;
+        public Employees(int EmpId, string Ename, int Eage)
+        {
+            Console.WriteLine("Constructor invokes !!");
+        }
+        static void Main(string [] args)
+        {
+            Employees P = new Employees();
+            Console.ReadLine();
+        }
+    }
+}
+```
+
+```
+using System;
+namespace ConstructorName
+{
+    class Employees
+    {
+        int EmpId;
+        string Ename;
+        int Eage;
+        public Employees(int EmpId, string Ename, int Eage)
+        {
+            this.EmpId = EmpId;
+            this.Ename=Ename;
+            this.Eage=Eage;
+        }
+        public int getId()
+        {
+            return this.EmpId;
+        }
+        public string getName()
+        {
+            return this.EName;
+        }
+        public int getAge()
+        {
+            return this.Eage;
+        }
+
+        static void Main(string [] args)
+        {
+            Employees Ali = new Employees(11, "Ali", 22);
+            Console.WriteLine("Employee id is {0} ", Ali.getId());
+            Console.WriteLine("Employee name is {0} ", Ali.getName());
+            Console.WriteLine("Employee age is {0} ", Ali.getAge());
+
+            Console.ReadLine();
+        }
+    }
+}
+
+```
+
+### CONSTRUCTOR OVERLOADING:-
+
+
+
+```
+using System;
+using System.Threading.Tasks;
+namespace ConstructorOverloading
+{
+    class Program
+    {
+        public Program()
+        {
+            Console.WriteLine("This is a first constructor |!");
+        }
+        public Program(int a, int b)
+        {
+            Console.WriteLine("This is a second constructor !! {0}", (a+b));
+        }
+        public Program(int a, int b,int c)
+        {
+            Console.WriteLine("This is a third constructor !! {0}", (a + b + c));
+        }
+        public static void Main(string[] args)
+        {
+            Program P = new Program(20,30);
+            Console.ReadLine();
+        }
+    }
+}
+```
+
+
+### STATIC AND INSTANCE MEMBERS OF CLASS IN C#:-
+
+* Instnce Member:-
+- Instance member have a separate copy for each and every object of the class.
+- Instance member belongs to the objects of the class.
+- When no static keyword is present the class member is called no-static or instance member.
+- Instance or non-static members are invoked objects of the class.
+
+```
+using System;
+using System.Collection.Generic;
+using System.Text;
+using System.Linq;
+using System.Threding.Tasks;
+
+namespace Static_And_Instance_Members
+{
+    class Student
+    {
+        public int rollNo;      // Instance variable
+        public string firstName;
+        public string lastName;
+        public int standard;
+        
+        public void PrintFullName()   // Instance Method
+        {
+            string fullname = this.firstName + " " + this.lastName;
+            Console.WriteLine("Your full name is {0} " , fullname);
+        }
+    }
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            Student Ali = new Student();
+            Ali.rollNo = 22;
+            Ali.firstName = "Musraful";
+            Ali.lastName = "Haque";
+            Ali.standard = 12;
+
+            Ali.PrintFullName();
+
+            Student Zain = new Student();
+            Zain.rollNo = 25;    
+            Zain.firstName = "Sohail";
+            Zain.lastName = "Khan";
+            Zain.standard = 11; 
+
+            Zain.PrintFullName();
+
+            Console.WriteLine(Ali.rollNo + " " + Zain.rollNo);
+            Console.WriteLine(Ali.firstName + " " + Ali.lastName);
+            Ali.PrintFullName();
+            Console.WriteLine("------------");
+            Console.WriteLine(Zain.rollNo);
+            Console.WriteLine(Zain.firstName + " " + Zain.lastName);
+            Zain.PrintFullName();
+
+            Console.ReadLine();
+        }
+    }
+
+}
+
+```
+
+
+
+
