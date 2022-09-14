@@ -1385,7 +1385,306 @@ namespace Static_And_Instance_Members
 }
 
 ```
+### COPY CONSTRUCTOR IN C#:-
+The constructor which creates an object by copying variables from another object is called a copy constructor. The purpose of a copy constructor is to initialize a new instance to the values of an existing instance.
+
+In simple words, we can say copy constructor is a constructor which copies a data of one object into another object.
 
 
+```
+using System;
+namespace CopyConstructor
+{
+    class Example
+    {
+        string name;
+        int age;
+
+        public Example(string name, int age)
+        {
+            this.name = name;
+            this.age = age;
+        }
+        public Example(Example e) //Copy Constructor
+        {
+            this.name = e.name;
+            this.age = e.age;
+        }
+
+        public void getData()
+        {
+            Console.WriteLine("Name is : {0}", name);
+            Console.WriteLine("Age is : {0}", age);
+        }
+    }
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Example obj = new Example("Adil",21);
+            obj.getData();
+            Example obj1 = new Example(obj);
+            obj1.getData();
+
+            Console.ReadLine();
+        }
+    }
+}
+```
+
+In C#, Copy constructor is a parameterized constructor which contains a parameter of same class type. The copy constructor in C# is useful whenever we want to initialize to the values of an existing instance.
+
+### PRIVATE CONSTRUCTOR IN C#:-
+When a constructor is created with a private specifier, it is not possible for other classes to derive from this class, neither is it possible to create an instance of this class. They are usually used in classes that contain static members only. Some key points of a private constructor are:-
+- One use of a private constructor is when we have only static members.
+- Once we provide a constructor that is either private or public or any, the compiler will not add the parameter-less public constructor to the class.
+- In the presence of parameterless private constructor you cannot create a default constructor.
+
+- We cannot inherit the class in which we have a private constructor.
+- We can take parameter in private constructor.
+
+
+
+```
+using System;
+namespace PrivateConstructor
+{
+    class Example
+    {
+        public static int a;
+        private Example()
+        {
+
+        }
+        public static int getIncrement()
+        {
+            return ++a;
+        }
+
+        public static void getTime()
+        {
+            Console.WriteLine(DateTime.Now);
+        }
+    }
+    <!-- class Example2 : Example
+    {
+        
+    } -->
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Example.getTime();
+            Example.a = 20;
+            Console.WriteLine(Example.getIncrement());
+            Console.ReadLine();
+        }
+    }
+}
+```
+
+### STATIC CLASS IN C#:-
+Classes that cannot be instantiated or inherited are known as static classes and the static keyword is used before the class name that consists of static data members and static methods.
+- Instantiated means objects are not create.
+It is not possible to create an instance of a static class the new keyword. The main features of static classes are as follows:-
+- They can only contain static members.
+- They cannot be instantiated or inherited and cannot contain instance constructors. However, the developer can create static constructors to initialize the static members.
+
+
+
+### Destruction in C# programming:-
+A destructor is a special method which has the same name as the class but starts with the character ~ before the class name and immediately de-allocates memory of objects that are no longer required.
+
+Following are the features of inherited.
+- Destructors cannot be overloaded or inherited.
+- Destructors cannot be explicity invoked.
+- Destructor cannot specify access modifier and cannot take parameters.
+
+
+### INHERITANCE IN C# PROGRAMMING:-
+- The similarity in physical features of a child to that of its parents is due to the child having inherited these features from its parents.
+- Similarly, in C#, inheritance allows you to create a class by deriving the common attributes and methods of an existing class.
+- The reason behind OOP programming is to promote the reusability of code and to reduce complexity in code and it is possible by using inheritance.
+
+
+```
+using System;
+namespace Inheritance
+{
+    class VisitingEmployees : Employees
+    {
+        public int VisitingSalary;
+        public int VisitingHours;
+
+    }
+    class PermanentEmployees : Employees
+    {
+        public int PermanentSalary;
+        public int PermanentHours;
+    }
+    class Employees
+    {
+        public int EmpId;
+        public string EmpName;
+        public int EmpAge;
+        public int EmpContactNo;
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            PermanentEmployees asad = new PermanentEmployees();
+            asad.EmpId = 12;
+            VisitingEmployees Ali = new VisitingEmployees();
+            Ali.EmpId = 23;
+            Console.WriteLine(asad.EmpId);
+            Console.WriteLine(Ali.EmpId);
+
+            Console.ReadLine();
+        }
+    }
+} 
+```
+
+
+### Types of Inheritance in C#:-
+1) Single
+2) Hierarchical
+3) Multi level
+4) Multiple (using interface)
+
+* Single Inheritance:-
+It is the type of inheritance in which there is one base class and one derived class.
+
+```
+using System;
+namespace Types_Of_Inheritance
+{
+    class BaseClass
+    {
+        public void show1()
+        {
+            Console.WriteLine("This is a method of base classs..");
+        }
+    }
+    class DerivedClass : BaseClass
+    {
+        public void Show2()
+        {
+            Console.WriteLine("This is a method of derived class..");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            DerivedClass dc1 = new DerivedClass();
+            dc1.show1();
+            dc1.Show2();
+
+            Console.ReadLine();
+        }
+    }
+}
+```
+
+* Hierarchical Inheritance:-
+This is the type of inheritance in which there are multiple classes derived from one base clas.
+This type of inheritance is used when there is a requirement of one class feature that is needed in multiple classes. 
+
+```
+using System;
+namespace Types_Of_Inheritance
+{
+    class BaseClass
+    {
+        public void show1()
+        {
+            Console.WriteLine("This is a method of base classs..");
+        }
+    }
+    class DerivedClass1 : BaseClass
+    {
+        public void Show2()
+        {
+            Console.WriteLine("This is a method of derived class..");
+        }
+    }
+    class DerivedClass2 : BaseClass
+    {
+        public void Show3()
+        {
+            Console.WriteLine("This is a method of second derived class ..");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            DerivedClass1 dc1 = new DerivedClass1();
+            dc1.show1();
+            dc1.Show2();
+            
+
+            DerivedClass2 dc2 = new DerivedClass2();
+            dc1.show1();
+            dc1.Show3();
+
+            Console.ReadLine();
+        }
+    }
+}
+```
+
+* Multilevel Interitance:-
+
+
+```
+using System;
+namespace Types_Of_Inheritance
+{
+    class BaseClass
+    {
+        public void show1()
+        {
+            Console.WriteLine("This is a method of base classs..");
+        }
+    }
+    class DerivedClass1 : BaseClass
+    {
+        public void Show2()
+        {
+            Console.WriteLine("This is a method of derived class..");
+        }
+    }
+    class DerivedClass2 : DerivedClass1
+    {
+        public void Show3()
+        {
+            Console.WriteLine("This is a method of second derived class ..");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            DerivedClass1 dc1 = new DerivedClass1();
+            dc1.show1();
+            dc1.Show2();
+            
+
+            DerivedClass2 dc2 = new DerivedClass2();
+            dc2.show2();
+            dc2.Show2();
+            dc2.Show3();
+
+            Console.ReadLine();
+        }
+    }
+}
+```
 
 
