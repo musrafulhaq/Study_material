@@ -1687,4 +1687,149 @@ namespace Types_Of_Inheritance
 }
 ```
 
+* Multiple inheritance using interface:-
+- Go to namespace name and click right button then choose add and you choose class
+```
+using System;
+namespace Types_Of_Inheritance
+{
+    class BaseClass
+    {
+        public void show1()
+        {
+            Console.WriteLine("This is a method of base classs..");
+        }
+    }
+    class DerivedClass1 : BaseClass
+    {
+        public void Show2()
+        {
+            Console.WriteLine("This is a method of derived class..");
+        }
+    }
+    class DerivedClass2 : DerivedClass1
+    {
+        public void Show3()
+        {
+            Console.WriteLine("This is a method of second derived class ..");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            DerivedClass1 dc1 = new DerivedClass1();
+            dc1.show1();
+            dc1.Show2();
+            
+
+            DerivedClass3 dc3 = new DerivedClass3();
+            dc3.show1();
+            dc3.Show2();
+            dc3.Show3();
+            dc3.Show4();
+
+            Console.ReadLine();
+        }
+    }
+}
+
+```
+
+```
+using System;
+namespace Types_Of_Inheritance
+    class DerivedClass3 : DerivedClass2
+        {
+            public void Show4()
+            {
+                Console.WriteLine("This is a method of Third derived class ..");
+            }
+        }
+```
+
+### CONSTRUCTOR IN INHERITANCE:-
+
+A constructor is a method with the same name as the class name and is invoked automatically when a new instance of a class is created.
+- Constructor of both classes must be executed when the object of child class is created.
+- Sub class's constructor invokes constructor of super class.
+- Explicit call to the super class constructor from sub class's can be made using base().
+- base() should be the first statement of child class constructor.
+- If u don't write base() explicity then java compiler implicity write the base().
+
+```
+using System;
+namespace Constructor_In_Inheritance
+{
+    class BaseClass
+    {
+        public BaseClass()
+        {
+            Console.WriteLine("This is a constructor of base class !!");
+        }
+
+    }
+    class DerivedClass : BaseClass
+    {
+        public DeriveClass()
+        {
+            Console.WriteLine("This is a constructor of derived class !!");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            DerivedClass dc = new DerivedClass();
+        }
+    }
+}
+```
+If you create parameterized constructor then you use base keyword and inside the base keyword you give arguments.
+
+```
+using System;
+namespace Constructor_In_Inheritance
+{
+    class BaseClass
+    {
+        public BaseClass(string message)
+        {
+            Console.WriteLine(message);
+        }
+
+    }
+    class DerivedClass : BaseClass
+    {
+        public DeriveClass() : base("This is c sharp")
+        {
+            Console.WriteLine("This is a constructor of derived class !!");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            DerivedClass dc = new DerivedClass();
+        }
+    }
+}
+```
+
+### ACCESS SPECIFIER OR ACCESS MODIFIER IN C#:-
+
+C# provides you with access modifiers that allow you to specify which classes can access the data members of a particular class.
+In C#, there are four commonly used access modifiers
+- public
+- private
+- protected
+- internal
+
+
+ 
+
+
+
+
+
 
